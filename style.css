@@ -1,0 +1,133 @@
+#header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 85%;
+}
+#header .title{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#header .title img{
+  max-width: 3em;
+}
+#header .title h2{
+  padding-left: 0.5em;
+}
+#header .score{
+  margin: 0;
+  color: #6c90ac;
+}
+#header .tried{
+  margin-top: 0;
+}
+
+
+#cards{
+  /* 預設軸：row */
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  width: 85%;
+}
+.card{
+
+  /* 卡片在容器裡的排版 */
+  flex: 7% 1 1; /* flex-basis(元件在容器裡佔有多少), flex-grow(剩餘空間是否填滿), flex-shrink(容器不夠裝時元素是否收縮)*/
+  height: 8vw; /* 8%視窗大小，隨著螢幕縮放維持長寬比例 */
+  border: 2px solid #e0e0e0;
+
+  /*卡片內部元素排版*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* space-around：每個內部元素有相同的margin，與外框間距為half-margin */
+
+  /* 其他調整*/
+  margin: 2px;
+  box-sizing: border-box;
+
+}
+
+.card img{
+  max-width: 30%;
+  align-self: center;
+}
+
+.card p{
+  margin: 3px;
+  font-size: 10px;
+}
+
+.card p:last-child{ /* 在 .card 內部裡的最後一個 p 元素 */
+  transform: rotate(180deg);
+}
+
+.back{
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+.paired{
+  background-color: #dae0e3;
+}
+.wrong{
+  animation-name: wrongAnimation; /*指定加入動畫的名稱*/
+  animation-duration: 0.2s; /*動畫持續的秒數*/
+  animation-iteration-count: 5; /*動畫重複的數量*/
+}
+@keyframes wrongAnimation{
+  to{
+    border: 2px solid #25e9be;
+  }
+}
+
+/** Game Finished **/
+.completed{
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(0, 76, 153, 0.8);
+  
+  width: 50vw;
+  padding:50px 0;
+  margin: 0 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  
+/*   
+    align-items: center;
+    position: absolute;
+    z-index: 999;
+    top: 33vh;
+    background-color: RGBA(113, 9, 9, 0.85);
+    width: 50vw;
+    padding: 50px 0;
+    margin: 0 25vw;
+    border-radius:999em; */
+}
+.completed>p{
+  font-size: 1.5em;
+  color: wheat;
+  text-align: center;
+  margin: 0;
+}
+.completed>p:first-child{
+  font-size: 3em;
+  font-weight: 700;
+  color: #ffffff;
+}
+.completed>p>span{
+  color: #f88222;
+}
+
+.btn-style{
+  border-radius:50em;
+  width: 200px;
+  margin-top: 20px;
+  font-size: x-large;
+  align-self: center;
+}
